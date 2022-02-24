@@ -32,6 +32,7 @@ jQuery((function ($) {
 
 
     window.setTimeout(function () {
+        let video;
         blocksyVideos.videosProducto.each(
             function anadirVideo() {
 
@@ -42,9 +43,11 @@ jQuery((function ($) {
 
                 // Anadir video a la cola de imagenes
                 blocksyVideos.cajaVideos = blocksyImagenes.cajaImagenes.children("div").last().clone(true)
-                blocksyVideos.cajaVideos.html(jQuery(this).html())
+                video = jQuery(this).detach()
+                blocksyVideos.cajaVideos.html(video.html())
                 blocksyVideos.cajaVideos.find("video").attr("width", "600px").attr("height", "600px").css("margin-top", "-100px").css("background-color", "white");
                 blocksyVideos.cajaVideos.appendTo(blocksyImagenes.cajaImagenes)
+                
                 // // Anadir video a la cola de imagenes
                 // blocksyVideos.cajaVideos = blocksyImagenes.cajaImagenes.children("div").last().clone(true);
                 // blocksyVideos.cajaVideos.html(jQuery(this).html());

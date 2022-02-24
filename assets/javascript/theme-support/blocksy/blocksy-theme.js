@@ -17,6 +17,7 @@ jQuery((function ($) {
     var blocksyVideos = new Videos("video_para_galeria_woocommerce");
     var e = 250;
     window.setTimeout(function () {
+        var video;
         blocksyVideos.videosProducto.each(function anadirVideo() {
             // Anadir un Thumbail
             blocksyVideos.miniaturaVideo = blocksyImagenes.miniaturaImagen.last().clone(true);
@@ -24,7 +25,8 @@ jQuery((function ($) {
             blocksyVideos.miniaturaVideo.appendTo(blocksyImagenes.galeriaMiniaturas);
             // Anadir video a la cola de imagenes
             blocksyVideos.cajaVideos = blocksyImagenes.cajaImagenes.children("div").last().clone(true);
-            blocksyVideos.cajaVideos.html(jQuery(this).html());
+            video = jQuery(this).detach();
+            blocksyVideos.cajaVideos.html(video.html());
             blocksyVideos.cajaVideos.find("video").attr("width", "600px").attr("height", "600px").css("margin-top", "-100px").css("background-color", "white");
             blocksyVideos.cajaVideos.appendTo(blocksyImagenes.cajaImagenes);
             // // Anadir video a la cola de imagenes
