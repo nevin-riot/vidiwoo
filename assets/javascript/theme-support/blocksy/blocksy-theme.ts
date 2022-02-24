@@ -40,7 +40,10 @@ jQuery((function ($) {
                 blocksyVideos.miniaturaVideo.children("span").attr("aria-label", `Diapositiva ${blocksyImagenes.miniaturaImagen.length + 1}`);
                 blocksyVideos.miniaturaVideo.appendTo(blocksyImagenes.galeriaMiniaturas);
 
+                // Anadir video a la cola de imagenes
                 blocksyVideos.cajaVideos = blocksyImagenes.cajaImagenes.children("div").last().clone(true)
+                blocksyVideos.cajaVideos.html(jQuery(this).html())
+                blocksyVideos.cajaVideos.find("video").attr("width", "600px").attr("height", "600px").css("margin-top", "-100px").css("background-color", "white");
                 blocksyVideos.cajaVideos.appendTo(blocksyImagenes.cajaImagenes)
                 // // Anadir video a la cola de imagenes
                 // blocksyVideos.cajaVideos = blocksyImagenes.cajaImagenes.children("div").last().clone(true);
