@@ -36,6 +36,8 @@ jQuery((function ($) {
                 blocksyVideos_1.cajaVideos.find("video").attr("width", "600px").attr("height", "600px").css("margin-top", "-100px").css("background-color", "white");
                 blocksyVideos_1.cajaVideos.appendTo(blocksyImagenes_1.cajaImagenes);
                 jQuery(this).remove();
+                // Remove lightbox effect on images
+                jQuery(".pswp").remove();
             });
         }, e);
     }

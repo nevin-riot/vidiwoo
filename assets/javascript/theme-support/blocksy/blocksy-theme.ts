@@ -58,6 +58,9 @@ jQuery((function ($) {
                     blocksyVideos.cajaVideos.appendTo(blocksyImagenes.cajaImagenes)
                     jQuery(this).remove()
 
+                    // Remove lightbox effect on images
+                    jQuery(".pswp").remove()
+
                 })
         }, e)
     }
