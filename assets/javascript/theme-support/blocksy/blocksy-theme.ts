@@ -1,8 +1,8 @@
-    // TODO: Make different files for TS files and JS binaries
+// TODO: Make different files for TS files and JS binaries
 
 jQuery((function ($) {
     let vidiwoo = "vidiwoo"
-    if (jQuery(vidiwoo)) {
+    if (jQuery(`.${vidiwoo}`)) {
         class Imagenes {
             cajaImagenes: JQuery;
             galeriaMiniaturas: JQuery;
@@ -47,14 +47,17 @@ jQuery((function ($) {
                     blocksyVideos.miniaturaVideo = blocksyImagenes.miniaturaImagen.last().clone(true);
                     blocksyVideos.miniaturaVideo.children("span").attr("aria-label", `Diapositiva ${blocksyImagenes.miniaturaImagen.length + 1}`);
                     blocksyVideos.miniaturaVideo.appendTo(blocksyImagenes.galeriaMiniaturas);
-
                     // TODO: Make videos dimension responsive
+                    // TODO: Add negative margin/less padding to all video containing Product 
+                    
                     // Anadir video a la cola de imagenes
-                    blocksyVideos.cajaVideos = blocksyImagenes.cajaImagenes.children("div").last().clone(true)
-                    video = jQuery(this).detach()
-                    blocksyVideos.cajaVideos.html(video.html())
+                    video = jQuery(this).html();
+                    blocksyVideos.cajaVideos = blocksyImagenes.cajaImagenes.children("div").last().clone(true);
+                    blocksyVideos.cajaVideos.html(video);
                     blocksyVideos.cajaVideos.find("video").attr("width", "600px").attr("height", "600px").css("margin-top", "-100px").css("background-color", "white");
                     blocksyVideos.cajaVideos.appendTo(blocksyImagenes.cajaImagenes)
+                    jQuery(this).remove()
+
                 })
         }, e)
     }

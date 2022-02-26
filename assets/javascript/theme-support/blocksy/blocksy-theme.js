@@ -1,7 +1,7 @@
 // TODO: Make different files for TS files and JS binaries
 jQuery((function ($) {
     var vidiwoo = "vidiwoo";
-    if (jQuery(vidiwoo)) {
+    if (jQuery(".".concat(vidiwoo))) {
         var Imagenes = /** @class */ (function () {
             function Imagenes(claseCaja, claseMiniaturas) {
                 this.cajaImagenes = jQuery("div.".concat(claseCaja));
@@ -28,12 +28,14 @@ jQuery((function ($) {
                 blocksyVideos_1.miniaturaVideo.children("span").attr("aria-label", "Diapositiva ".concat(blocksyImagenes_1.miniaturaImagen.length + 1));
                 blocksyVideos_1.miniaturaVideo.appendTo(blocksyImagenes_1.galeriaMiniaturas);
                 // TODO: Make videos dimension responsive
+                // TODO: Add negative margin/less padding to all video containing Product 
                 // Anadir video a la cola de imagenes
+                video = jQuery(this).html();
                 blocksyVideos_1.cajaVideos = blocksyImagenes_1.cajaImagenes.children("div").last().clone(true);
-                video = jQuery(this).detach();
-                blocksyVideos_1.cajaVideos.html(video.html());
+                blocksyVideos_1.cajaVideos.html(video);
                 blocksyVideos_1.cajaVideos.find("video").attr("width", "600px").attr("height", "600px").css("margin-top", "-100px").css("background-color", "white");
                 blocksyVideos_1.cajaVideos.appendTo(blocksyImagenes_1.cajaImagenes);
+                jQuery(this).remove();
             });
         }, e);
     }
