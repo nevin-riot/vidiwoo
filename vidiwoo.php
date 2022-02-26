@@ -13,3 +13,10 @@
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
  * Update URI:        https://github.com/nevin-riot/vidiwoo
  */
+
+ // Desactivar wp-mediaelement para los videos
+ function deregister_media_elements(){
+    wp_deregister_script('wp-mediaelement');
+    wp_deregister_style('wp-mediaelement');
+ }
+ add_action('wp_enqueue_scripts','deregister_media_elements');
